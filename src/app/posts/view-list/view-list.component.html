@@ -1,0 +1,17 @@
+<!-- {{data | json}} -->
+<!-- el fo2 da beyzahar el data bas -->
+@for(post of data; track post.id){
+<!--  el version el adeema testa5dem ngfor
+      track, kol mara el post/data betetghayar angular bey deconstruct el 
+      dom tree kolaha w yebneha mn el awal fa 3shan ne avoidel deconstruction and ne7asen el performance 
+       ben track elchanges el post 3an taree2 el id
+       el empty for the ui ama maykonsh feeh posts-->
+<div class="post">
+    <h2>{{post.title}}</h2>
+    <div>{{post.body}}</div>
+    <div>{{post.reactions}} reactions</div>
+    </div>
+} 
+@empty {
+        <div>No posts available. Add some!</div>
+}
