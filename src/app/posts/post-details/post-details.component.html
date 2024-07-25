@@ -33,16 +33,17 @@
         <h2>Post not found</h2>
     </div>
     }
-    <hr />
+  
     
     @for(comment of comments; track comment.id){
-    <div class="comment">
+    <div class="comments">
     
-        <div>{{comment.user.username}}:{{comment.body}}</div>
+        <div class="comments-user">{{comment.user.username}}: </div> 
+        <div class="comments-body">{{comment.body}}</div>
         
     
-        <hr />
+       
     </div>
     } @empty {
-    <div>No comments yet! Be the first to comment.</div>
+    <div class="comments-empty">No comments yet! Be the first to comment.</div>
     }

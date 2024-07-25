@@ -3,6 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Post, Response } from './posts.entity';
 import { RouterModule } from '@angular/router';
+import { apiConfig } from '../../configs/api';
+
 
 @Component({
   selector: 'app-view-list',
@@ -19,7 +21,7 @@ export default class ViewListComponent { //export default badal ma nerga3 ne3mel
   }
 
   ngOnInit():void {
-    this.http.get<Response>('https://dummyjson.com/posts').subscribe({
+    this.http.get<Response>(`${apiConfig.baseUrl}/posts`).subscribe({
       next: (res) =>{
         console.log({res}); //res is the response from the server
         this.data = res.posts; //resource.posts

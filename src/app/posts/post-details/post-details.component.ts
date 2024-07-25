@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { CommentsResponse, Post, Comment } from '../view-list/posts.entity';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { apiConfig } from '../../configs/api';
+
 
 @Component({
   selector: 'app-post-details',
@@ -12,7 +14,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './post-details.component.scss'
 })
 export default class PostDetailsComponent {
-  apiBaseUrl = 'https://dummyjson.com';
   //we need an object for posts and comments that we'll use in the html page to display posts and comments
   post?: Post;
   comments?: Comment[];
@@ -51,7 +52,7 @@ export default class PostDetailsComponent {
   getPostById(postId: string) {//string aw number 7asab design el database
     //subscribe bta5od 2 things: next and error
     this.http
-      .get<Post>(`${this.apiBaseUrl}/posts/${postId}`)
+      .get<Post>(`${apiConfig.baseUrl}/posts/${postId}`)
       .subscribe({
         next: (res) => {
           //coupling, betghayar fel global scope
@@ -70,7 +71,7 @@ export default class PostDetailsComponent {
 
   getPostCommentsById(postId: string) {
     this.http
-      .get<CommentsResponse>(`${this.apiBaseUrl}/posts/${postId}/comments`)
+      .get<CommentsResponse>(`${apiConfig.baseUrl}/posts/${postId}/comments`)
       .subscribe({
         next: (res) => {
           this.comments = res?.comments;

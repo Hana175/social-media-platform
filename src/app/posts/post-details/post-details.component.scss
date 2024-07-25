@@ -1,1 +1,94 @@
-// 
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$background-color: #f9f9f9;
+$comment-background-color: #f1f1f1;
+$border-color: #e1e1e1;
+$padding: 1rem;
+$margin: 1rem 0;
+$border-radius: 5px;
+$comment-padding: 0.75rem;
+$comment-margin: 0.75rem 0;
+
+// Mixins
+@mixin box-shadow($shadow-color) {
+  box-shadow: 0 4px 6px rgba($shadow-color, 0.1), 0 1px 3px rgba($shadow-color, 0.08);
+}
+
+// Post Container
+.post {
+  background-color: $background-color;
+  padding: $padding;
+  margin: $margin;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  @include box-shadow(#000);
+
+  &-title {
+    color: $primary-color;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &-body {
+    color: $text-color;
+    line-height: 1.6;
+  }
+
+  &-not-found {
+    color: $text-color;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+// Comments Section
+.comments {
+  margin-top: 2rem;
+
+  &-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: $secondary-color;
+  }
+
+  &-list {
+    list-style: none;
+    padding: 0;
+
+    &-item {
+      background-color: $comment-background-color;
+      padding: $comment-padding;
+      margin: $comment-margin;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      @include box-shadow(#000);
+
+      &-user {
+        font-weight: bold;
+        color: $primary-color;
+        margin-bottom: 0.25rem;
+      }
+
+      &-body {
+        color: $text-color;
+        margin-top: 0.5rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  &-empty {
+    text-align: center;
+    color: darken($text-color, 10%);
+    font-style: italic;
+  }
+}
+
+// Horizontal Rule
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: 2rem 0;
+}
