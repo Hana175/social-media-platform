@@ -4,7 +4,7 @@ title: string;
 body: string;
 userId: number;
 tags: string[];
-reactions: number;
+//reactions: number;
 }
 //el properties betetgab mn el backend w
 // hana5odha mn dummyjson.com/posts

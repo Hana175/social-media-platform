@@ -1,4 +1,48 @@
-{{ post | json}}
-<!-- json pipe -->
- <hr/>
-{{comment | json}}
+<!-- {{data | json}}
+ el fo2 da beyzahar el data bas 
+@for(post of data; track post.id){
+  el version el adeema testa5dem ngfor
+      track, kol mara el post/data betetghayar angular bey deconstruct el 
+      dom tree kolaha w yebneha mn el awal fa 3shan ne avoidel deconstruction and ne7asen el performance 
+       ben track elchanges el post 3an taree2 el id
+       el empty for the ui ama maykonsh feeh posts
+<div class="post">
+    <h2>{{post.title}}</h2>
+    <div>{{post.body}}</div>
+     <div>{{post.reactions}} reactions</div> 
+    </div>
+} 
+@empty {
+        <div>No posts available. Add some!</div>
+} -->
+        
+    <!-- {{ post | json}} json pipe
+{{comments | json}}-->
+
+
+<!-- el if de flow control gdeed f angular, mngherha kona bnesta5dem *ngIf
+ the new flow control gives better performance -->
+ @if(post){
+    <div class="post">
+        <h2>{{post.title}}</h2>
+        <div>{{post.body}}</div>
+    
+    </div>
+    } @else {
+    <div class="post">
+        <h2>Post not found</h2>
+    </div>
+    }
+    <hr />
+    
+    @for(comment of comments; track comment.id){
+    <div class="comment">
+    
+        <div>{{comment.user.username}}:{{comment.body}}</div>
+        
+    
+        <hr />
+    </div>
+    } @empty {
+    <div>No comments yet! Be the first to comment.</div>
+    }

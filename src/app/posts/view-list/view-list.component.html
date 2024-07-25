@@ -9,7 +9,8 @@
 <div class="post">
     <h2>{{post.title}}</h2>
     <div>{{post.body}}</div>
-    <div>{{post.reactions}} reactions</div>
+    <div><a routerLink="/posts/{{post.id}}">read more..</a></div>
+
     </div>
 } 
 @empty {

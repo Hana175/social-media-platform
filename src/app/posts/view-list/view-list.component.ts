@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient} from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Post, Response } from './posts.entity';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-view-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './view-list.component.html',
   styleUrl: './view-list.component.scss'
 })
